@@ -21,7 +21,17 @@ class MyListView extends StatelessWidget {
           itemCount: MyData.lngth,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
-                title: Text(MyData.listdata[index]['title'].toString()));
+              title: Text(MyData.listdata[index]['title'].toString()),
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(MyData.listdata[index]['title'].toString())
+                    ,behavior: SnackBarBehavior.floating,
+                    )
+
+                );
+              },
+            );
           },
           separatorBuilder: (BuildContext context, int index) {
             return const Divider();
